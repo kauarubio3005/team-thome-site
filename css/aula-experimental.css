@@ -1,0 +1,781 @@
+/* Estilos exclusivos da página de aula experimental. */
+
+.experimental {
+  --experimental-vermelho: #c62828;
+  --experimental-vermelho-escuro: #a51f1f;
+  --experimental-escuro: #202024;
+  --experimental-cinza: #595960;
+  --experimental-borda: #e5e5e9;
+  --experimental-fundo: #f6f6f8;
+
+  background: var(--experimental-fundo);
+  color: var(--experimental-escuro);
+}
+
+.experimental,
+.experimental *,
+.experimental *::before,
+.experimental *::after {
+  box-sizing: border-box;
+}
+
+/* Mantém ocultos os campos controlados pelo JavaScript. */
+
+.experimental [hidden] {
+  display: none !important;
+}
+
+/* Abertura da página. */
+
+.experimental-abertura {
+  position: relative;
+  padding: 72px 0 48px;
+  border-bottom: 1px solid var(--experimental-borda);
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 10%),
+      transparent 55%
+    ),
+    linear-gradient(135deg, #fff, #fafafa);
+}
+
+.experimental-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 15px;
+  border: 1px solid #f0d4d4;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--experimental-vermelho-escuro);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.experimental-selo::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--experimental-vermelho);
+  content: "";
+}
+
+.experimental-abertura h1 {
+  max-width: 920px;
+  margin: 24px 0 22px;
+  color: var(--experimental-escuro);
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.experimental-abertura h1 span {
+  display: block;
+  margin-top: 4px;
+  color: var(--experimental-vermelho);
+}
+
+.experimental-introducao {
+  max-width: 690px;
+  margin: 0;
+  color: var(--experimental-cinza);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* Benefícios da primeira visita. */
+
+.experimental-beneficios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.experimental-beneficios > div {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--experimental-borda);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgb(20 20 24 / 3%);
+}
+
+.experimental-beneficios > div::before {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background: var(--experimental-vermelho);
+  content: "";
+}
+
+.experimental-beneficios strong,
+.experimental-beneficios span {
+  display: block;
+}
+
+.experimental-beneficios strong {
+  margin-bottom: 8px;
+  color: var(--experimental-escuro);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.experimental-beneficios span {
+  color: var(--experimental-cinza);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+/* Organização principal. */
+
+.experimental-conteudo {
+  padding: 48px 0 72px;
+}
+
+.experimental-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 30px;
+}
+
+.experimental-painel,
+.experimental-orientacoes {
+  min-width: 0;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid var(--experimental-borda);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow:
+    0 4px 12px rgb(20 20 24 / 2%),
+    0 18px 44px rgb(20 20 24 / 5%);
+}
+
+/* Título do formulário. */
+
+.experimental-etiqueta {
+  margin: 0 0 10px;
+  color: var(--experimental-vermelho);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.experimental-titulo-painel h2,
+.experimental-resumo h2,
+.experimental-orientacoes h2 {
+  margin: 0 0 14px;
+  color: var(--experimental-escuro);
+  font-size: clamp(1.4rem, 2.3vw, 1.8rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.experimental-titulo-painel {
+  margin-bottom: 30px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--experimental-borda);
+}
+
+.experimental-titulo-painel > p:last-child {
+  margin: 0;
+  color: var(--experimental-cinza);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* Etapas do formulário. */
+
+.experimental-etapa {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.experimental-numero {
+  display: flex;
+  flex: 0 0 38px;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #f1d8d8;
+  border-radius: 12px;
+  background: #fff0f0;
+  color: var(--experimental-vermelho-escuro);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.experimental-etapa-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.experimental label {
+  display: block;
+  margin: 8px 0 10px;
+  color: var(--experimental-escuro);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Campos de seleção e identificação. */
+
+/* A especificidade também cobre o estilo de input do JS atual. */
+
+.experimental #formulario-experimental input,
+.experimental #formulario-experimental select {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 13px 14px;
+  border: 1px solid #c8c8d0;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--experimental-escuro);
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.experimental #formulario-experimental select {
+  cursor: pointer;
+}
+
+.experimental #formulario-experimental input::placeholder {
+  color: #73737c;
+  opacity: 1;
+}
+
+.experimental #formulario-experimental input + label {
+  margin-top: 20px;
+}
+
+.experimental #formulario-experimental input:hover,
+.experimental #formulario-experimental select:not(:disabled):hover {
+  border-color: #90909b;
+}
+
+.experimental #formulario-experimental select:disabled {
+  border-color: var(--experimental-borda);
+  background: #f3f3f6;
+  color: #666670;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.experimental #formulario-experimental input:focus-visible,
+.experimental #formulario-experimental select:focus-visible {
+  border-color: var(--experimental-vermelho);
+  outline: 3px solid rgb(198 40 40 / 20%);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px var(--experimental-vermelho);
+}
+
+.experimental button:focus-visible,
+.experimental a:focus-visible {
+  outline: 3px solid var(--experimental-vermelho);
+  outline-offset: 5px;
+}
+
+.experimental-campos-duplos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.experimental-campos-duplos > div {
+  min-width: 0;
+}
+
+/* Descrição da turma. */
+
+.experimental-descricao {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid var(--experimental-borda);
+  border-left: 4px solid var(--experimental-vermelho);
+  border-radius: 12px;
+  background: #f8f8fa;
+}
+
+.experimental-descricao h3 {
+  margin: 0 0 8px;
+  color: var(--experimental-escuro);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.experimental-descricao p {
+  margin: 0;
+  color: var(--experimental-cinza);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.experimental-ajuda {
+  margin: 12px 0 0;
+  color: var(--experimental-cinza);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+/* Escolha do kimono. */
+
+.experimental #etapa-kimono .experimental-etapa-conteudo {
+  padding: 16px;
+  border: 1px solid #efdada;
+  border-radius: 14px;
+  background: #fffafa;
+}
+
+.experimental #etapa-kimono label {
+  margin-top: 0;
+}
+
+.experimental #etapa-kimono .experimental-ajuda {
+  margin-bottom: 0;
+}
+
+/* Botão de abertura do WhatsApp. */
+
+.experimental-botao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 58px;
+  padding: 17px 20px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: var(--experimental-vermelho);
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(198 40 40 / 18%);
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.experimental-botao:hover {
+  background: var(--experimental-vermelho-escuro);
+  box-shadow: 0 10px 24px rgb(198 40 40 / 23%);
+  transform: translateY(-2px);
+}
+
+.experimental-botao:active {
+  transform: translateY(0);
+}
+
+.experimental-botao span {
+  display: flex;
+  flex: 0 0 30px;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgb(255 255 255 / 13%);
+  font-size: 1.25rem;
+}
+
+/* Informação de privacidade. */
+
+.experimental-privacidade {
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--experimental-borda);
+  color: var(--experimental-cinza);
+  font-size: 0.78rem;
+  line-height: 1.85;
+}
+
+/* Coluna lateral. */
+
+.experimental-lateral {
+  display: grid;
+  min-width: 0;
+  gap: 22px;
+}
+
+/* Resumo da visita. */
+
+.experimental-resumo {
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid #353039;
+  border-top: 4px solid var(--experimental-vermelho);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #202024, #2c2023);
+  color: #fff;
+  box-shadow: 0 16px 38px rgb(20 20 24 / 12%);
+}
+
+.experimental-resumo .experimental-etiqueta {
+  color: #ffb4b4;
+}
+
+.experimental-resumo h2 {
+  color: #fff;
+}
+
+.experimental-resumo dl {
+  margin: 26px 0 0;
+}
+
+.experimental-resumo dl > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 13%);
+}
+
+.experimental-resumo dt {
+  flex: 0 0 auto;
+  color: #c9c9d0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.experimental-resumo dd {
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: right;
+  overflow-wrap: break-word;
+}
+
+.experimental-resumo .experimental-gratis {
+  padding: 4px 10px;
+  border: 1px solid rgb(167 232 189 / 25%);
+  border-radius: 999px;
+  background: rgb(167 232 189 / 8%);
+  color: #a7e8bd;
+  font-size: 0.8rem;
+}
+
+.experimental-resumo-nota {
+  margin: 20px 0 0;
+  color: #c9c9d0;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+/* Orientações para a primeira aula. */
+
+.experimental-orientacoes h2 {
+  font-size: 1.4rem;
+}
+
+.experimental-orientacoes ul {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0;
+  padding-left: 19px;
+}
+
+.experimental-orientacoes li {
+  margin: 0;
+  padding-left: 4px;
+  color: var(--experimental-cinza);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.experimental-orientacoes li::marker {
+  color: var(--experimental-vermelho);
+}
+
+.experimental-endereco {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--experimental-borda);
+  border-radius: 14px;
+  background: var(--experimental-fundo);
+}
+
+.experimental-endereco strong {
+  color: var(--experimental-escuro);
+  font-size: 0.95rem;
+}
+
+.experimental-endereco p {
+  margin: 8px 0 0;
+  color: var(--experimental-cinza);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+/* Links da coluna lateral. */
+
+.experimental-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  color: var(--experimental-vermelho-escuro);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.experimental-link span {
+  flex-shrink: 0;
+  font-size: 1.15rem;
+}
+
+.experimental-link:hover {
+  color: var(--experimental-vermelho);
+}
+
+.experimental-link-grade {
+  min-height: 54px;
+  margin: 0;
+  padding: 16px 20px;
+  border: 1px solid var(--experimental-borda);
+  border-radius: 14px;
+  background: #fff;
+}
+
+/* Avisos do formulário. */
+
+.experimental-aviso {
+  margin: 14px 0 0;
+  padding: 16px;
+  border: 1px solid #edcccc;
+  border-left: 4px solid var(--experimental-vermelho);
+  border-radius: 12px;
+  background: #fff4f4;
+  color: var(--experimental-escuro);
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+
+.experimental-aviso a {
+  color: var(--experimental-vermelho-escuro);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Tablets. */
+
+@media (max-width: 960px) {
+  .experimental-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .experimental-lateral {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .experimental-link-grade {
+    grid-column: 1 / -1;
+  }
+
+  .experimental-beneficios > div {
+    padding: 20px;
+  }
+}
+
+/* Celulares. */
+
+@media (max-width: 640px) {
+  .experimental-abertura {
+    padding: 42px 0 30px;
+  }
+
+  .experimental-selo {
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+
+  .experimental-abertura h1 {
+    margin: 22px 0 18px;
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .experimental-introducao {
+    font-size: 0.97rem;
+  }
+
+  .experimental-beneficios {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .experimental-beneficios > div {
+    padding: 18px 20px;
+    border-radius: 14px;
+  }
+
+  .experimental-beneficios > div::before {
+    width: 24px;
+    margin-bottom: 12px;
+  }
+
+  .experimental-conteudo {
+    padding: 28px 0 44px;
+  }
+
+  .experimental-painel,
+  .experimental-resumo,
+  .experimental-orientacoes {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .experimental-titulo-painel {
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+  }
+
+  .experimental-titulo-painel h2 {
+    font-size: 1.5rem;
+  }
+
+  .experimental-etapa {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .experimental-numero {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+  }
+
+  .experimental label {
+    margin-top: 5px;
+    font-size: 0.88rem;
+  }
+
+  .experimental #formulario-experimental input,
+  .experimental #formulario-experimental select {
+    min-height: 50px;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .experimental-campos-duplos {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .experimental-descricao {
+    padding: 16px;
+  }
+
+  .experimental #etapa-kimono .experimental-etapa-conteudo {
+    padding: 14px;
+  }
+
+  .experimental-botao {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  .experimental-privacidade {
+    font-size: 0.76rem;
+  }
+
+  .experimental-lateral {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .experimental-link-grade {
+    grid-column: auto;
+  }
+
+  .experimental-resumo dl > div {
+    gap: 14px;
+    padding: 14px 0;
+  }
+}
+
+/* Ajustes para telas muito estreitas. */
+
+@media (max-width: 380px) {
+  .experimental-painel,
+  .experimental-resumo,
+  .experimental-orientacoes {
+    padding: 22px 16px;
+  }
+
+  .experimental-etapa {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .experimental-numero {
+    flex-basis: auto;
+  }
+
+  .experimental-etapa-conteudo {
+    width: 100%;
+  }
+
+  .experimental-resumo dl > div {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .experimental-resumo dd {
+    text-align: left;
+  }
+}
+
+/* Acessibilidade: reduz os efeitos de movimento. */
+
+@media (prefers-reduced-motion: reduce) {
+  .experimental #formulario-experimental input,
+  .experimental #formulario-experimental select,
+  .experimental-botao {
+    transition: none;
+  }
+
+  .experimental-botao:hover,
+  .experimental-botao:active {
+    transform: none;
+  }
+}

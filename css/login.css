@@ -1,0 +1,234 @@
+/* Configurações gerais */
+
+:root {
+    color-scheme: dark;
+
+    --cor-fundo: #101010;
+    --cor-superficie: #1a1a1a;
+    --cor-campo: #121212;
+    --cor-texto: #f5f5f5;
+    --cor-texto-secundario: #b8b8b8;
+    --cor-destaque: #e53935;
+    --cor-borda: #383838;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 4px;
+}
+
+/* Cabeçalho */
+
+.cabecalho-login {
+    width: 100%;
+    padding: 24px clamp(20px, 5vw, 72px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.marca {
+    color: var(--cor-texto);
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.link-voltar {
+    color: var(--cor-texto-secundario);
+    font-size: 0.95rem;
+    text-underline-offset: 4px;
+}
+
+.link-voltar:hover {
+    color: var(--cor-texto);
+}
+
+/* Conteúdo principal */
+
+.pagina-login {
+    flex: 1;
+    width: 100%;
+    padding: 48px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartao-login {
+    width: 100%;
+    max-width: 460px;
+    padding: 36px;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgb(0 0 0 / 25%);
+}
+
+.identificacao-area {
+    margin: 0 0 10px;
+    color: var(--cor-texto-secundario);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.introducao-login h1 {
+    margin: 0 0 12px;
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    line-height: 1.2;
+}
+
+.introducao-login > p:last-child {
+    margin: 0;
+    color: var(--cor-texto-secundario);
+}
+
+/* Formulário */
+
+.formulario-login {
+    margin-top: 28px;
+}
+
+.formulario-login fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.formulario-login legend {
+    margin-bottom: 16px;
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.campo-formulario input {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    background: var(--cor-campo);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.campo-formulario input::placeholder {
+    color: #909090;
+    opacity: 1;
+}
+
+.campo-formulario input:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.botao-entrar {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+    background: var(--cor-destaque);
+    color: #ffffff;
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 700;
+}
+
+.botao-entrar:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+/* Avisos e rodapé */
+
+.aviso-desenvolvimento {
+    margin: 18px 0 0;
+    padding: 12px 14px;
+    background: #242424;
+    color: #dedede;
+    border-left: 3px solid var(--cor-destaque);
+    border-radius: 4px;
+    font-size: 0.88rem;
+}
+
+.orientacao-acesso {
+    margin: 24px 0 0;
+    color: var(--cor-texto-secundario);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.rodape-login {
+    padding: 20px;
+    color: var(--cor-texto-secundario);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.rodape-login p {
+    margin: 0;
+}
+
+/* Ajustes para telas pequenas */
+
+@media (max-width: 480px) {
+    .cabecalho-login {
+        padding: 18px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .marca {
+        font-size: 1.15rem;
+    }
+
+    .pagina-login {
+        padding: 28px 16px;
+    }
+
+    .cartao-login {
+        padding: 26px 22px;
+        border-radius: 12px;
+    }
+}

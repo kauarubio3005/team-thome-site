@@ -1,0 +1,648 @@
+/* ==========================================
+   TEAM THOMÉ — NOSSA HISTÓRIA
+   ========================================== */
+
+/* Fundo e espaçamento da página. */
+
+.historia {
+  padding-block: 64px 96px;
+  border-top: 0;
+  border-bottom: 0;
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 9%),
+      transparent 45%
+    ),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8f8fa 48%,
+      #f3f3f5 100%
+    );
+}
+
+/* ==========================================
+   ABERTURA — INTRODUÇÃO E VÍDEO
+   ========================================== */
+
+.historia .historia-abertura {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+.historia .historia-introducao {
+  min-width: 0;
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.historia .historia-introducao .texto-destaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 9px 16px;
+  border: 1px solid #efd4d4;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--cor-destaque);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
+}
+
+.historia .historia-introducao .texto-destaque::before {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cor-destaque);
+  content: "";
+}
+
+.historia #titulo-historia {
+  max-width: 600px;
+  font-size: clamp(36px, 3.8vw, 50px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+  text-wrap: balance;
+}
+
+.historia #titulo-historia .palavra-destaque {
+  display: block;
+  margin-top: 10px;
+}
+
+.historia .historia-introducao .descricao {
+  max-width: 510px;
+  margin-top: 26px;
+  color: var(--cor-texto-suave);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.historia .historia-convite {
+  max-width: 460px;
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 3px solid var(--cor-destaque);
+  color: #60606a;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.historia .historia-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  margin-top: 20px;
+  padding-block: 8px;
+  color: var(--cor-destaque);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.historia .historia-link:hover {
+  color: var(--cor-destaque-escura);
+}
+
+/* ==========================================
+   VÍDEO
+   ========================================== */
+
+.historia .historia-video {
+  min-width: 0;
+  width: 100%;
+  max-width: 580px;
+  justify-self: center;
+}
+
+.historia .historia-video-quadro {
+  overflow: hidden;
+  border: 1px solid #33333b;
+  border-radius: 22px;
+  background: #19191d;
+  box-shadow:
+    0 6px 16px rgb(20 20 24 / 6%),
+    0 24px 48px rgb(20 20 24 / 14%);
+}
+
+.historia .historia-video-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.historia .historia-video-indicador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cor-destaque);
+  color: #ffffff;
+  font-size: 11px;
+}
+
+/* Preserva o vídeo inteiro, inclusive se for vertical.
+   Nenhum recorte é aplicado. */
+
+.historia .historia-video-player {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  background: #000000;
+}
+
+.historia .historia-video-player a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.historia .historia-video-quadro figcaption {
+  padding: 18px 22px;
+  border-top: 3px solid var(--cor-destaque);
+  background: #202024;
+  color: #eeeeF2;
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.historia .historia-video-ajuda {
+  margin-top: 14px;
+  padding-inline: 8px;
+  color: #60606a;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ==========================================
+   CARTÕES DA TRAJETÓRIA
+   ========================================== */
+
+.historia .marcos-historia {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.historia .cartao-marco {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 32px 28px;
+  border: 1px solid #e8e8ec;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0 3px 8px rgb(20 20 24 / 2%),
+    0 14px 32px rgb(20 20 24 / 5%);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.historia .cartao-marco::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--cor-destaque),
+    #e27171
+  );
+  content: "";
+}
+
+.historia .numero-marco {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 38px;
+  margin-bottom: 24px;
+  padding: 7px 13px;
+  border: 1px solid #f0d9d9;
+  border-radius: 10px;
+  background: #fff5f5;
+  color: var(--cor-destaque);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.historia .cartao-marco h2 {
+  max-width: 280px;
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  text-wrap: balance;
+}
+
+.historia .cartao-marco p {
+  margin-top: 18px;
+  color: var(--cor-texto-suave);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* Destaque para o novo capítulo. */
+
+.historia .cartao-marco:last-child {
+  border-color: #2b2b31;
+  background: linear-gradient(145deg, #29292f, #19191d);
+  box-shadow: 0 14px 32px rgb(20 20 24 / 12%);
+}
+
+.historia .cartao-marco:last-child::before {
+  background: linear-gradient(
+    90deg,
+    var(--cor-destaque),
+    #ee8a8a
+  );
+}
+
+.historia .cartao-marco:last-child .numero-marco {
+  border-color: rgb(255 255 255 / 16%);
+  background: rgb(255 255 255 / 8%);
+  color: #ffffff;
+}
+
+.historia .cartao-marco:last-child h2 {
+  color: #ffffff;
+}
+
+.historia .cartao-marco:last-child p {
+  color: #d2d2d8;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .historia .cartao-marco:hover {
+    transform: translateY(-5px);
+    border-color: #dfb7b7;
+    box-shadow:
+      0 5px 12px rgb(20 20 24 / 3%),
+      0 20px 42px rgb(20 20 24 / 9%);
+  }
+
+  .historia .cartao-marco:last-child:hover {
+    border-color: #b25a5a;
+    box-shadow: 0 20px 42px rgb(20 20 24 / 17%);
+  }
+}
+
+/* ==========================================
+   HISTÓRIA COMPLETA
+   ========================================== */
+
+.historia .historia-detalhes {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: 48px;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid #dddde3;
+}
+
+.historia .historia-chamada {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 34px;
+  border: 1px solid #eedada;
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      ellipse at bottom right,
+      rgb(198 40 40 / 8%),
+      transparent 70%
+    ),
+    #fffafa;
+}
+
+.historia .historia-chamada::before {
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: var(--cor-destaque);
+  content: "";
+}
+
+.historia .historia-chamada h2 {
+  max-width: 380px;
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: clamp(26px, 2.7vw, 34px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  text-wrap: balance;
+}
+
+.historia .historia-chamada > p {
+  max-width: 360px;
+  margin-top: 22px;
+  color: var(--cor-texto-suave);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.historia .historia-textos {
+  min-width: 0;
+  padding: 6px 0;
+}
+
+.historia .historia-textos p {
+  color: #55555e;
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.historia .historia-textos p + p {
+  margin-top: 24px;
+}
+
+.historia .historia-textos > p:first-child {
+  color: #303038;
+  font-size: 17px;
+}
+
+.historia .historia-textos .nota-historica {
+  margin-top: 32px;
+  padding: 20px 22px;
+  border: 1px solid #e2e2e8;
+  border-left: 4px solid var(--cor-destaque);
+  border-radius: 0 14px 14px 0;
+  background: #ffffff;
+  color: #60606a;
+  font-size: 13px;
+  line-height: 1.85;
+  box-shadow: 0 6px 18px rgb(20 20 24 / 3%);
+}
+
+/* ==========================================
+   TABLETS
+   ========================================== */
+
+@media (max-width: 960px) {
+  .historia {
+    padding-block: 52px 76px;
+  }
+
+  .historia .historia-abertura {
+    gap: 30px;
+    margin-bottom: 48px;
+  }
+
+  .historia #titulo-historia {
+    font-size: 38px;
+    letter-spacing: -1.3px;
+  }
+
+  .historia .historia-introducao .descricao {
+    font-size: 16px;
+  }
+
+  .historia .marcos-historia {
+    gap: 18px;
+  }
+
+  .historia .cartao-marco {
+    padding: 28px 22px;
+  }
+
+  .historia .cartao-marco h2 {
+    font-size: 22px;
+  }
+
+  .historia .cartao-marco p {
+    font-size: 14px;
+  }
+
+  .historia .historia-detalhes {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 30px;
+    margin-top: 52px;
+    padding-top: 40px;
+  }
+
+  .historia .historia-chamada {
+    padding: 28px;
+  }
+
+  .historia .historia-chamada h2 {
+    font-size: 28px;
+  }
+}
+
+/* ==========================================
+   CELULARES E TELAS MENORES
+   ========================================== */
+
+@media (max-width: 760px) {
+  .historia {
+    padding-block: 46px 60px;
+  }
+
+  .historia .historia-abertura {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .historia .historia-introducao .texto-destaque {
+    margin-bottom: 20px;
+  }
+
+  .historia #titulo-historia {
+    max-width: 650px;
+    font-size: clamp(36px, 7vw, 48px);
+    line-height: 1.14;
+    letter-spacing: -1.4px;
+  }
+
+  .historia .historia-introducao .descricao {
+    max-width: 600px;
+    margin-top: 22px;
+  }
+
+  .historia .historia-video {
+    max-width: 600px;
+  }
+
+  .historia .historia-video-player {
+    max-height: 65vh;
+  }
+
+  .historia .marcos-historia {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .historia .cartao-marco {
+    padding: 28px;
+    border-radius: 17px;
+  }
+
+  .historia .numero-marco {
+    margin-bottom: 18px;
+  }
+
+  .historia .cartao-marco h2 {
+    max-width: none;
+    font-size: 25px;
+  }
+
+  .historia .cartao-marco p {
+    margin-top: 16px;
+    font-size: 15px;
+  }
+
+  .historia .historia-detalhes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 32px;
+  }
+
+  .historia .historia-chamada {
+    padding: 28px;
+    border-radius: 17px;
+  }
+
+  .historia .historia-chamada h2,
+  .historia .historia-chamada > p {
+    max-width: 100%;
+  }
+
+  .historia .historia-chamada h2 {
+    font-size: 29px;
+  }
+
+  .historia .historia-textos {
+    padding: 0;
+  }
+
+  .historia .historia-textos p {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .historia .historia-textos > p:first-child {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   CELULARES PEQUENOS
+   ========================================== */
+
+@media (max-width: 420px) {
+  .historia {
+    padding-block: 36px 48px;
+  }
+
+  .historia .historia-introducao .texto-destaque {
+    padding: 8px 13px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .historia #titulo-historia {
+    font-size: clamp(30px, 8.5vw, 35px);
+    letter-spacing: -1px;
+  }
+
+  .historia .historia-video-quadro {
+    border-radius: 17px;
+  }
+
+  .historia .historia-video-cabecalho {
+    padding: 13px 16px;
+    font-size: 12px;
+  }
+
+  .historia .historia-video-quadro figcaption {
+    padding: 15px 16px;
+    font-size: 12px;
+  }
+
+  .historia .historia-video-ajuda {
+    padding-inline: 0;
+  }
+
+  .historia .cartao-marco {
+    padding: 25px 22px;
+  }
+
+  .historia .cartao-marco h2 {
+    font-size: 23px;
+  }
+
+  .historia .numero-marco {
+    font-size: 13px;
+  }
+
+  .historia .historia-chamada {
+    padding: 25px 22px;
+  }
+
+  .historia .historia-chamada h2 {
+    font-size: 26px;
+    letter-spacing: -0.7px;
+  }
+
+  .historia .historia-chamada > p {
+    font-size: 15px;
+  }
+
+  .historia .historia-textos .nota-historica {
+    padding: 17px 18px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .historia .cartao-marco {
+    transition: none;
+  }
+
+  .historia .cartao-marco:hover {
+    transform: none;
+  }
+}

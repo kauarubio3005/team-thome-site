@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Crie sua conta | Team Thomé</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --fundo: #0c0c0e;
+            --painel: #141416;
+            --campo: #19191d;
+            --texto: #f5f5f5;
+            --secundario: #a3a3ab;
+            --vermelho: #e43136;
+            --borda: #2b2b31;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: var(--fundo);
+            color: var(--texto);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        input:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--vermelho);
+            outline-offset: 4px;
+        }
+
+        .pagina {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+        }
+
+        .apresentacao {
+            position: sticky;
+            top: 0;
+            align-self: start;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(32px, 5vw, 80px);
+            background:
+                radial-gradient(
+                    ellipse at bottom left,
+                    rgb(228 49 54 / 18%),
+                    transparent 65%
+                ),
+                var(--painel);
+            border-right: 1px solid var(--borda);
+        }
+
+        .apresentacao::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 600px;
+            right: -180px;
+            top: 20%;
+            transform: rotate(30deg);
+            border: 1px solid rgb(255 255 255 / 6%);
+            pointer-events: none;
+        }
+
+        .marca {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            flex-direction: column;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .marca-nome {
+            font-size: 1.55rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .marca-nome span {
+            color: var(--vermelho);
+        }
+
+        .marca-modalidade {
+            margin-top: 5px;
+            color: var(--secundario);
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+        }
+
+        .mensagem {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 540px;
+            padding: 70px 0;
+        }
+
+        .etiqueta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 24px;
+            color: #c2c2c9;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .etiqueta::before {
+            content: "";
+            width: 30px;
+            height: 3px;
+            background: var(--vermelho);
+        }
+
+        .mensagem h2 {
+            margin: 0;
+            font-size: clamp(2.8rem, 4.8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.04;
+            letter-spacing: -2px;
+        }
+
+        .mensagem h2 span {
+            color: var(--vermelho);
+        }
+
+        .mensagem-texto {
+            max-width: 390px;
+            margin: 26px 0 0;
+            color: var(--secundario);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .assinatura {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #777780;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .cadastro {
+            display: flex;
+            flex-direction: column;
+            padding: clamp(26px, 4vw, 60px);
+        }
+
+        .navegacao {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .voltar {
+            color: var(--secundario);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .voltar:hover {
+            color: var(--texto);
+        }
+
+        .conteudo-cadastro {
+            width: 100%;
+            max-width: 460px;
+            margin: auto;
+            padding: 34px 0;
+        }
+
+        .titulo-cadastro {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            letter-spacing: -1px;
+        }
+
+        .descricao-cadastro {
+            margin: 0;
+            color: var(--secundario);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .formulario {
+            margin-top: 28px;
+        }
+
+        .rotulo-grupo {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .instrucao-grupo {
+            margin: 0 0 14px;
+            color: var(--secundario);
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .opcoes-perfil {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .cartao-opcao {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 13px;
+            padding: 16px;
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            background: var(--campo);
+            cursor: pointer;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .cartao-opcao:hover {
+            border-color: #57575f;
+        }
+
+        .cartao-opcao:has(input:checked) {
+            border-color: var(--vermelho);
+            background: rgb(228 49 54 / 8%);
+        }
+
+        .cartao-opcao input {
+            width: 19px;
+            height: 19px;
+            flex: 0 0 auto;
+            margin: 2px 0 0;
+            accent-color: var(--vermelho);
+            cursor: pointer;
+        }
+
+        .texto-opcao {
+            display: grid;
+            gap: 5px;
+        }
+
+        .titulo-opcao {
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .descricao-opcao {
+            color: var(--secundario);
+            font-size: 0.78rem;
+            line-height: 1.55;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .campo input {
+            width: 100%;
+            min-height: 52px;
+            padding: 14px 15px;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            background: var(--campo);
+            color: var(--texto);
+            font: inherit;
+            font-size: 0.95rem;
+        }
+
+        .campo input::placeholder {
+            color: #777780;
+            opacity: 1;
+        }
+
+        .ajuda-campo {
+            margin: 8px 0 0;
+            color: var(--secundario);
+            font-size: 0.77rem;
+            line-height: 1.55;
+        }
+
+        .informacao {
+            margin: 2px 0 20px;
+            padding: 14px 15px;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            background: var(--campo);
+            color: var(--secundario);
+            font-size: 0.78rem;
+            line-height: 1.65;
+        }
+
+        .informacao strong {
+            color: var(--texto);
+        }
+
+        .criar-conta {
+            width: 100%;
+            min-height: 52px;
+            padding: 13px 18px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--vermelho);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .criar-conta:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+
+        .aviso {
+            margin: 16px 0 0;
+            padding: 14px 16px;
+            border: 1px solid rgb(228 49 54 / 45%);
+            border-radius: 8px;
+            background: rgb(228 49 54 / 10%);
+            color: var(--texto);
+            font-size: 0.88rem;
+            font-weight: 600;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        .aviso:empty {
+            display: none;
+        }
+
+        .aviso:not(:empty) {
+            animation: aparecer-aviso 0.25s ease-out;
+        }
+
+        @keyframes aparecer-aviso {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .aviso:not(:empty) {
+                animation: none;
+            }
+        }
+
+        .acesso-existente {
+            margin: 24px 0 0;
+            color: var(--secundario);
+            font-size: 0.84rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .acesso-existente a {
+            color: var(--texto);
+            font-weight: 700;
+            text-underline-offset: 4px;
+        }
+
+        .acesso-existente a:hover {
+            color: var(--vermelho);
+        }
+
+        .rodape-cadastro {
+            margin: 0;
+            color: #777780;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .pagina {
+                grid-template-columns: 1fr;
+            }
+
+            .apresentacao {
+                position: relative;
+                top: auto;
+                align-self: auto;
+                height: auto;
+                min-height: 0;
+                padding: 26px;
+                border-right: 0;
+                border-bottom: 1px solid var(--borda);
+            }
+
+            .mensagem {
+                flex: none;
+                padding: 38px 0 10px;
+            }
+
+            .mensagem h2 {
+                font-size: clamp(2.5rem, 8vw, 3.5rem);
+                letter-spacing: -1px;
+            }
+
+            .mensagem-texto {
+                margin-top: 17px;
+            }
+
+            .assinatura {
+                display: none;
+            }
+
+            .cadastro {
+                padding: 24px 26px;
+            }
+
+            .conteudo-cadastro {
+                padding: 30px 0;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .apresentacao,
+            .cadastro {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+
+            .cartao-opcao {
+                padding: 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="pagina">
+        <section class="apresentacao" aria-labelledby="titulo-apresentacao">
+            <a
+                class="marca"
+                href="../index.html"
+                aria-label="Team Thomé — página inicial"
+            >
+                <span class="marca-nome">TEAM <span>THOMÉ</span></span>
+                <span class="marca-modalidade">JIU-JÍTSU</span>
+            </a>
+
+            <div class="mensagem">
+                <p class="etiqueta">Sua jornada começa aqui</p>
+
+                <h2 id="titulo-apresentacao">
+                    Faça parte.<br>
+                    Conecte-se.<br>
+                    <span>Evolua.</span>
+                </h2>
+
+                <p class="mensagem-texto">
+                    Um espaço digital para acompanhar sua jornada
+                    ou a de quem você é responsável.
+                </p>
+            </div>
+
+            <p class="assinatura">TEAM THOMÉ · DESDE 2017</p>
+        </section>
+
+        <section class="cadastro" aria-labelledby="titulo-cadastro">
+            <nav class="navegacao" aria-label="Retorno ao site">
+                <a class="voltar" href="../index.html">← Voltar ao site</a>
+            </nav>
+
+            <div class="conteudo-cadastro">
+                <h1 class="titulo-cadastro" id="titulo-cadastro">
+                    Crie sua conta
+                </h1>
+
+                <p class="descricao-cadastro">
+                    Conte para nós como você vai usar seu espaço.
+                    Escolha uma opção para continuar.
+                </p>
+
+                <form
+                    class="formulario"
+                    id="formulario-cadastro"
+                    novalidate
+                    aria-describedby="aviso-cadastro"
+                >
+                    <fieldset
+                        style="border: 0; padding: 0; margin: 0;"
+                        aria-describedby="instrucao-perfil"
+                    >
+                        <legend class="rotulo-grupo">
+                            O que você gostaria de fazer?
+                        </legend>
+
+                        <p class="instrucao-grupo" id="instrucao-perfil">
+                            Escolha uma opção para continuar.
+                        </p>
+
+                        <div class="opcoes-perfil">
+                            <label class="cartao-opcao" for="perfil-aluno">
+                                <input
+                                    type="radio"
+                                    id="perfil-aluno"
+                                    name="perfil"
+                                    value="aluno"
+                                >
+
+                                <span class="texto-opcao">
+                                    <span class="titulo-opcao">
+                                        Quero criar meu perfil de aluno
+                                    </span>
+                                    <span class="descricao-opcao">
+                                        Para acompanhar sua própria jornada
+                                        na academia.
+                                    </span>
+                                </span>
+                            </label>
+
+                            <label
+                                class="cartao-opcao"
+                                for="perfil-responsavel"
+                            >
+                                <input
+                                    type="radio"
+                                    id="perfil-responsavel"
+                                    name="perfil"
+                                    value="responsavel"
+                                >
+
+                                <span class="texto-opcao">
+                                    <span class="titulo-opcao">
+                                        Quero acompanhar um aluno menor
+                                    </span>
+                                    <span class="descricao-opcao">
+                                        Para solicitar o vínculo de uma criança
+                                        ou adolescente sob sua responsabilidade.
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="campo">
+                        <label for="nome-completo">Seu nome completo</label>
+
+                        <input
+                            type="text"
+                            id="nome-completo"
+                            name="nome_completo"
+                            placeholder="Digite seu nome completo"
+                            autocomplete="name"
+                            maxlength="150"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">Seu e-mail</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            autocomplete="email"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            required
+                        >
+
+                        <p class="ajuda-campo">
+                            Você precisará confirmar esse endereço para
+                            acessar sua conta.
+                        </p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">Crie uma senha</label>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Pelo menos 8 caracteres"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <p class="ajuda-campo">
+                            Use pelo menos 8 caracteres e evite reutilizar
+                            uma senha de outro site.
+                        </p>
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmar-senha">Confirme sua senha</label>
+
+                        <input
+                            type="password"
+                            id="confirmar-senha"
+                            name="confirmar_senha"
+                            placeholder="Digite a senha novamente"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+                    </div>
+
+                    <p class="informacao">
+                        <strong>
+                            Criar uma conta não confirma matrícula nem vínculo.
+                        </strong>
+                        O acesso à área restrita depende da liberação da equipe.
+                        Recomendamos fazer o cadastro na recepção, com a ajuda
+                        da equipe. Professor e administração são autorizados
+                        separadamente.
+                    </p>
+
+                    <button
+                        class="criar-conta"
+                        id="botao-criar-conta"
+                        type="submit"
+                    >
+                        Continuar
+                    </button>
+
+                    <p
+                        class="aviso"
+                        id="aviso-cadastro"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        Cadastro em preparação. Não envie dados reais ainda.
+                    </p>
+                </form>
+
+                <p class="acesso-existente">
+                    Já tem uma conta?
+                    <a href="login.html">Acesse aqui</a>
+                </p>
+            </div>
+
+            <p class="rodape-cadastro">Team Thomé — Jiu-jítsu</p>
+        </section>
+    </main>
+
+    <script type="module" src="../js/cadastro.js"></script>
+</body>
+</html>

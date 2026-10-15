@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Conheça a Team Thomé com uma aula experimental gratuita. Escolha sua turma e avise a equipe pelo WhatsApp."
+  >
+
+  <meta name="theme-color" content="#c62828">
+
+  <title>Aula experimental gratuita | Team Thomé</title>
+
+  <link rel="stylesheet" href="../css/pagina-inicial.css">
+  <link rel="stylesheet" href="../css/aula-experimental.css">
+
+  <script src="../js/aula-experimental.js" defer></script>
+</head>
+
+<body>
+  <a class="pular-conteudo" href="#conteudo-principal">
+    Ir para o conteúdo
+  </a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <a
+        class="marca-academia"
+        href="../index.html"
+        aria-label="Team Thomé — Página inicial"
+      >
+        <img
+          class="logo-academia"
+          src="../LOGO TEAM THÓME_page-0001.jpg"
+          alt=""
+        >
+
+        <span class="marca-textos">
+          <span class="nome-academia">Team Thomé</span>
+          <span class="identificacao-esporte">Jiu-Jítsu · Desde 2017</span>
+        </span>
+      </a>
+
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="../index.html">Início</a>
+        <a href="./historia.html">Nossa história</a>
+        <a href="./professores.html">Professores</a>
+        <a href="./aulas-horarios.html">Aulas e horários</a>
+        <a href="./produtos.html">Produtos</a>
+        <a href="./parceiros.html">Parceiros</a>
+        <a href="./contato.html">Contato</a>
+
+        <a href="./aula-experimental.html" aria-current="page">
+          Aula experimental
+        </a>
+
+        <a class="navegacao-aluno" href="./login.html">
+          Área do aluno <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="experimental">
+    <section class="experimental-abertura">
+      <div class="container">
+        <span class="experimental-selo">
+          Primeira aula gratuita
+        </span>
+
+        <h1>
+          O primeiro passo é seu.
+          <span>O tatame espera por você.</span>
+        </h1>
+
+        <p class="experimental-introducao">
+          Conheça o jiu-jítsu e a Team Thomé.
+          Escolha uma turma e um horário e avise nossa equipe
+          para recebermos você.
+        </p>
+
+        <div class="experimental-beneficios">
+          <div>
+            <strong>Sem custo</strong>
+            <span>Sua aula experimental é gratuita.</span>
+          </div>
+
+          <div>
+            <strong>Sem precisar reservar</strong>
+            <span>O aviso apenas facilita sua recepção.</span>
+          </div>
+
+          <div>
+            <strong>Precisa de kimono?</strong>
+            <span>
+              Temos kimono experimental para usar na aula.
+              Se já tiver o seu, pode trazer.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="experimental-conteudo"
+      aria-labelledby="titulo-escolha"
+    >
+      <div class="container experimental-layout">
+        <div class="experimental-painel">
+          <div class="experimental-titulo-painel">
+            <p class="experimental-etiqueta">Vamos começar</p>
+            <h2 id="titulo-escolha">Prepare sua primeira visita</h2>
+            <p>Escolha as opções abaixo para montar seu aviso.</p>
+          </div>
+
+          <form id="formulario-experimental">
+            <div class="experimental-etapa">
+              <span class="experimental-numero" aria-hidden="true">
+                01
+              </span>
+
+              <div class="experimental-etapa-conteudo">
+                <label for="turma">Escolha sua turma</label>
+
+                <select
+                  id="turma"
+                  name="turma"
+                  aria-describedby="descricao-turma"
+                  required
+                >
+                  <option value="">Selecione uma opção</option>
+                  <option value="iniciantes">
+                    Iniciantes — todos os níveis
+                  </option>
+                  <option value="fundamentos">
+                    Fundamentos — todos os níveis
+                  </option>
+                  <option value="adulto">
+                    Adulto — todos os níveis
+                  </option>
+                  <option value="intermediario">Intermediário</option>
+                  <option value="avancado">Avançado</option>
+                  <option value="no-gi">
+                    No Gi — sem kimono, todos os níveis
+                  </option>
+                  <option value="kids-01">Kids 01 — 3 a 6 anos</option>
+                  <option value="kids-02">Kids 02 — 6 a 10 anos</option>
+                  <option value="kids-03">Kids 03 — 10 a 14 anos</option>
+                </select>
+
+                <div class="experimental-descricao" aria-live="polite">
+                  <h3 id="nome-turma">Conheça sua turma</h3>
+
+                  <p id="descricao-turma">
+                    Selecione uma turma para conhecer o treino
+                    e as orientações de participação.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experimental-etapa">
+              <span class="experimental-numero" aria-hidden="true">
+                02
+              </span>
+
+              <div class="experimental-etapa-conteudo">
+                <div class="experimental-campos-duplos">
+                  <div>
+                    <label for="dia">Dia da semana</label>
+
+                    <select
+                      id="dia"
+                      name="dia"
+                      aria-describedby="orientacao-data"
+                      required
+                      disabled
+                    >
+                      <option value="">Escolha a turma primeiro</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="horario">Horário de início</label>
+
+                    <select
+                      id="horario"
+                      name="horario"
+                      required
+                      disabled
+                    >
+                      <option value="">Escolha o dia primeiro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <p id="orientacao-data" class="experimental-ajuda">
+                  Aparecem somente os horários da turma escolhida.
+                  Informe pelo WhatsApp a data em que pretende vir.
+                </p>
+
+                <p
+                  id="aviso-kids-sexta"
+                  class="experimental-aviso"
+                  hidden
+                >
+                  Às sextas-feiras, Kids 01, Kids 02 e Kids 03
+                  participam de uma aula unificada dedicada aos rolas.
+                  Consulte a equipe sobre a primeira participação
+                  da criança nessa aula.
+                </p>
+              </div>
+            </div>
+
+            <div class="experimental-etapa">
+              <span class="experimental-numero" aria-hidden="true">
+                03
+              </span>
+
+              <div class="experimental-etapa-conteudo">
+                <label id="rotulo-nome" for="nome-completo">
+                  Nome completo de quem vai participar
+                </label>
+
+                <input
+                  id="nome-completo"
+                  name="nome-completo"
+                  type="text"
+                  autocomplete="name"
+                  maxlength="120"
+                  placeholder="Digite o nome completo"
+                  aria-describedby="orientacao-identificacao"
+                  required
+                >
+
+                <label id="rotulo-telefone" for="telefone">
+                  Telefone de contato com DDD
+                </label>
+
+                <input
+                  id="telefone"
+                  name="telefone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  maxlength="25"
+                  placeholder="Ex.: (11) 99999-9999"
+                  aria-describedby="orientacao-identificacao"
+                  required
+                >
+
+                <p
+                  id="orientacao-identificacao"
+                  class="experimental-ajuda"
+                >
+                  Informe o nome completo de quem vai participar
+                  e um telefone de contato. Para crianças,
+                  informe o nome da criança e o telefone do responsável.
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="etapa-kimono"
+              class="experimental-etapa"
+              hidden
+            >
+              <span class="experimental-numero" aria-hidden="true">
+                04
+              </span>
+
+              <div class="experimental-etapa-conteudo">
+                <label id="rotulo-kimono" for="kimono">
+                  Kimono para a aula
+                </label>
+
+                <select
+                  id="kimono"
+                  name="kimono"
+                  aria-describedby="orientacao-kimono"
+                  disabled
+                >
+                  <option value="">Selecione uma opção</option>
+                  <option value="preciso">
+                    Preciso de um kimono experimental
+                  </option>
+                  <option value="proprio">
+                    Já tenho kimono e vou levar o meu
+                  </option>
+                </select>
+
+                <p id="orientacao-kimono" class="experimental-ajuda">
+                  Se precisar, entregamos um kimono experimental
+                  na sua chegada para usar durante a aula.
+                  Se já tiver kimono, pode trazer o seu.
+                </p>
+              </div>
+            </div>
+
+            <div class="experimental-etapa">
+              <span
+                id="numero-etapa-contato"
+                class="experimental-numero"
+                aria-hidden="true"
+              >
+                04
+              </span>
+
+              <div class="experimental-etapa-conteudo">
+                <label for="contato-whatsapp">
+                  WhatsApp da equipe
+                </label>
+
+                <select
+                  id="contato-whatsapp"
+                  name="contato-whatsapp"
+                  required
+                >
+                  <option value="5511930290784">
+                    (11) 93029-0784
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="experimental-botao">
+              Avisar minha participação pelo WhatsApp
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <p class="experimental-privacidade">
+              Nome, telefone e escolhas serão incluídos na mensagem
+              do WhatsApp. Você poderá revisar o texto antes de enviar.
+              A equipe só recebe o aviso após o envio.
+              Esta página não registra reservas nem salva esses dados
+              em um banco de dados. Para crianças, o preenchimento
+              deve ser feito por um responsável. Não envie documentos
+              ou dados sensíveis nessa conversa inicial.
+            </p>
+
+            <noscript>
+              <p class="experimental-aviso">
+                Ative o JavaScript para usar o formulário.
+                Você também pode
+                <a href="./aulas-horarios.html">consultar a grade de aulas</a>
+                e falar com a equipe pela
+                <a href="./contato.html">página de contato</a>.
+              </p>
+            </noscript>
+          </form>
+        </div>
+
+        <aside
+          class="experimental-lateral"
+          aria-label="Sua primeira visita"
+        >
+          <div class="experimental-resumo" aria-live="polite">
+            <p class="experimental-etiqueta">Sua escolha</p>
+            <h2>Nos vemos no tatame</h2>
+
+            <dl>
+              <div>
+                <dt>Turma</dt>
+                <dd id="resumo-turma">Ainda não selecionada</dd>
+              </div>
+
+              <div>
+                <dt>Dia</dt>
+                <dd id="resumo-dia">Ainda não selecionado</dd>
+              </div>
+
+              <div>
+                <dt>Horário</dt>
+                <dd id="resumo-horario">Ainda não selecionado</dd>
+              </div>
+
+              <div id="linha-resumo-kimono" hidden>
+                <dt>Kimono</dt>
+                <dd id="resumo-kimono">Ainda não selecionado</dd>
+              </div>
+
+              <div>
+                <dt>Aula experimental</dt>
+                <dd class="experimental-gratis">Gratuita</dd>
+              </div>
+            </dl>
+
+            <p class="experimental-resumo-nota">
+              Este é um resumo da sua escolha, não uma reserva.
+              Em geral, não é necessário agendar.
+              Para dúvidas sobre a turma ou a participação,
+              consulte a equipe antes da visita.
+            </p>
+          </div>
+
+          <div class="experimental-orientacoes">
+            <h2>Para sua primeira aula</h2>
+
+            <ul>
+              <li id="orientacao-roupa">
+                Para aulas com kimono, você pode trazer o seu
+                ou usar um kimono experimental, entregue na chegada.
+                No Gi não utiliza kimono.
+              </li>
+
+              <li>
+                Para crianças, o aviso pelo WhatsApp deve
+                ser feito por um responsável.
+              </li>
+
+              <li>
+                Tem dúvida sobre a turma? Fale com a equipe
+                antes da sua visita.
+              </li>
+            </ul>
+
+            <div class="experimental-endereco">
+              <strong>Team Thomé</strong>
+              <p>
+                Rua Maria do Carmo, 504<br>
+                Vila Alpina — São Paulo/SP
+              </p>
+            </div>
+
+            <a href="./contato.html" class="experimental-link">
+              Ver localização e contato
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <a
+            href="./aulas-horarios.html"
+            class="experimental-link experimental-link-grade"
+          >
+            Consultar a grade completa
+            <span aria-hidden="true">↗</span>
+          </a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-conteudo">
+      <div>
+        <p class="rodape-marca">Team Thomé</p>
+        <p>Jiu-Jítsu · Desde 2017</p>
+      </div>
+
+      <a class="voltar-inicio" href="#conteudo-principal">
+        Voltar ao topo
+        <span aria-hidden="true">↑</span>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

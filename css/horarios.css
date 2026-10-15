@@ -1,0 +1,896 @@
+/* ==========================================
+   TEAM THOMÉ — AULAS E HORÁRIOS
+   ========================================== */
+
+/* Cabeçalho fixo durante a rolagem nesta página. */
+
+body:has(.horarios) .cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 3px 18px rgb(20 20 24 / 7%);
+}
+
+#aulas-horarios,
+.horarios #titulo-programacao {
+  scroll-margin-top: var(--altura-cabecalho, 140px);
+}
+
+/* ==========================================
+   BASE
+   ========================================== */
+
+.horarios {
+  --horarios-vermelho: #c62828;
+  --horarios-vermelho-escuro: #a51f1f;
+  --horarios-texto: #202024;
+  --horarios-texto-suave: #595960;
+  --horarios-borda: #e5e5e9;
+  --horarios-fundo: #f6f6f8;
+
+  padding: 58px 0 72px;
+  border-top: 1px solid var(--horarios-borda);
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 8%),
+      transparent 35%
+    ),
+    var(--horarios-fundo);
+  color: var(--horarios-texto);
+}
+
+.horarios,
+.horarios *,
+.horarios *::before,
+.horarios *::after {
+  box-sizing: border-box;
+}
+
+.horarios [hidden] {
+  display: none !important;
+}
+
+/* ==========================================
+   ABERTURA — TEXTO E FOTO LADO A LADO
+   ========================================== */
+
+.horarios .horarios-abertura {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 58px);
+  margin-bottom: 52px;
+}
+
+.horarios .cabecalho-secao {
+  min-width: 0;
+  max-width: 850px;
+  margin-bottom: 36px;
+}
+
+.horarios .horarios-abertura .cabecalho-secao {
+  max-width: none;
+  margin: 0;
+}
+
+/* Pequena identificação acima do título. */
+
+.horarios .texto-destaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 24px;
+  padding: 9px 15px;
+  border: 1px solid #efd2d2;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--horarios-vermelho-escuro);
+  box-shadow: 0 3px 10px rgb(20 20 24 / 3%);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.horarios .texto-destaque::before {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--horarios-vermelho);
+  content: "";
+}
+
+/* Título principal. */
+
+.horarios #titulo-horarios {
+  margin: 0 0 24px;
+  color: var(--horarios-texto);
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.horarios #titulo-horarios .palavra-destaque {
+  display: block;
+  margin-top: 8px;
+  color: var(--horarios-vermelho);
+}
+
+.horarios .cabecalho-secao .descricao {
+  max-width: 620px;
+  margin: 0;
+  color: var(--horarios-texto-suave);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* Link que leva à programação. */
+
+.horarios .horarios-link-programacao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-height: 48px;
+  max-width: 100%;
+  margin-top: 26px;
+  padding: 12px 18px;
+  border: 1px solid var(--horarios-borda);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--horarios-vermelho-escuro);
+  box-shadow: 0 4px 12px rgb(20 20 24 / 3%);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.horarios .horarios-link-programacao span {
+  display: inline-flex;
+  flex: 0 0 26px;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: #fff0f0;
+  font-size: 1rem;
+}
+
+.horarios .horarios-link-programacao:hover {
+  border-color: #e5baba;
+  background: #fff7f7;
+  color: var(--horarios-vermelho-escuro);
+  box-shadow: 0 6px 16px rgb(198 40 40 / 7%);
+}
+
+/* Foto da abertura.
+   A altura automática preserva a imagem inteira. */
+
+.horarios .horarios-foto-topo {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--horarios-borda);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow:
+    0 6px 18px rgb(20 20 24 / 5%),
+    0 22px 48px rgb(20 20 24 / 10%);
+}
+
+.horarios .horarios-foto-topo img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.horarios .horarios-foto-topo figcaption {
+  margin: 0;
+  padding: 17px 22px;
+  border-top: 3px solid var(--horarios-vermelho);
+  background: linear-gradient(135deg, #202024, #302328);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CARTÕES DAS TURMAS
+   ========================================== */
+
+.horarios .descricoes-aulas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.horarios .cartao-aula {
+  position: relative;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--horarios-borda);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow:
+    0 3px 10px rgb(20 20 24 / 2%),
+    0 12px 28px rgb(20 20 24 / 4%);
+}
+
+.horarios .cartao-aula::before {
+  display: block;
+  width: 34px;
+  height: 4px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  background: var(--horarios-vermelho);
+  content: "";
+}
+
+.horarios .cartao-aula h2,
+.horarios .cartao-aula h3 {
+  margin: 0 0 12px;
+  color: var(--horarios-texto);
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.horarios .cartao-aula p {
+  margin: 0;
+  color: var(--horarios-texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+.horarios .cartao-aula p + p {
+  margin-top: 14px;
+}
+
+.horarios .cartao-aula strong {
+  color: var(--horarios-texto);
+  font-weight: 700;
+}
+
+/* ==========================================
+   INFORMAÇÕES SOBRE O TATAME E KIDS
+   ========================================== */
+
+.horarios .informacao-tatame {
+  margin: 0 0 16px;
+  padding: 22px 24px;
+  border: 1px solid var(--horarios-borda);
+  border-left: 4px solid var(--horarios-vermelho);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--horarios-texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+.horarios .informacao-tatame strong {
+  color: var(--horarios-texto);
+}
+
+.horarios .informacao-tatame + .titulo-grade {
+  margin-top: 44px;
+}
+
+/* ==========================================
+   PROGRAMAÇÃO
+   ========================================== */
+
+.horarios .titulo-grade {
+  margin: 0 0 12px;
+  color: var(--horarios-texto);
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.horarios .instrucao-grade {
+  margin: 0 0 24px;
+  color: var(--horarios-texto-suave);
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+
+/* Filtros por dia da semana. */
+
+.horarios .filtros-dias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid var(--horarios-borda);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgb(20 20 24 / 3%);
+  scroll-margin-top: var(--altura-cabecalho, 140px);
+}
+
+.horarios .botao-dia {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 1px solid var(--horarios-borda);
+  border-radius: 12px;
+  background: #f8f8fa;
+  color: var(--horarios-texto);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.horarios .botao-dia:hover {
+  border-color: #e5baba;
+  background: #fff3f3;
+  color: var(--horarios-vermelho-escuro);
+}
+
+.horarios .botao-dia[aria-pressed="true"] {
+  border-color: var(--horarios-vermelho);
+  background: var(--horarios-vermelho);
+  color: #fff;
+  box-shadow: 0 4px 12px rgb(198 40 40 / 18%);
+}
+
+.horarios .botao-dia[aria-pressed="true"]:hover {
+  border-color: var(--horarios-vermelho-escuro);
+  background: var(--horarios-vermelho-escuro);
+}
+
+/* Foco visível para navegação pelo teclado. */
+
+.horarios button:focus-visible,
+.horarios a:focus-visible {
+  outline: 3px solid var(--horarios-vermelho);
+  outline-offset: 4px;
+}
+
+/* Texto atualizado pelos filtros. */
+
+.horarios #resultado-filtro {
+  margin-bottom: 22px;
+  font-size: 0.85rem;
+}
+
+.horarios #resultado-filtro:empty {
+  display: none;
+}
+
+/* Grade de cartões. */
+
+.horarios .grade-horarios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.horarios .grade-horarios.dia-selecionado {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* ==========================================
+   CARTÕES DOS DIAS
+   ========================================== */
+
+.horarios .cartao-dia {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--horarios-borda);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow:
+    0 4px 12px rgb(20 20 24 / 2%),
+    0 14px 32px rgb(20 20 24 / 5%);
+}
+
+.horarios .cabecalho-dia {
+  padding: 22px 24px;
+  border-bottom: 3px solid var(--horarios-vermelho);
+  background: linear-gradient(135deg, #202024, #302328);
+  color: #fff;
+}
+
+.horarios .cabecalho-dia h2,
+.horarios .cabecalho-dia h3,
+.horarios .cabecalho-dia h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+/* Lista das aulas. */
+
+.horarios .lista-aulas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.horarios .item-aula {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding: 22px;
+}
+
+.horarios .item-aula + .item-aula {
+  border-top: 1px solid #ededf0;
+}
+
+/* Horário destacado. */
+
+.horarios .hora-aula {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 7px;
+  border: 1px solid #f2dada;
+  border-radius: 9px;
+  background: #fff1f1;
+  color: var(--horarios-vermelho-escuro);
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.4;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.horarios .detalhes-aula {
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.horarios .nome-aula {
+  display: block;
+  color: var(--horarios-texto);
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.horarios .professor-aula {
+  margin: 5px 0 0;
+  color: var(--horarios-texto-suave);
+  font-size: 0.81rem;
+  line-height: 1.7;
+}
+
+.horarios .observacao-aula {
+  margin: 10px 0 0;
+  padding: 9px 11px;
+  border: 1px solid #e9e9ee;
+  border-radius: 9px;
+  background: #f7f7f9;
+  color: var(--horarios-texto-suave);
+  font-size: 0.76rem;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   AVISOS
+   ========================================== */
+
+.horarios .aviso-horarios {
+  margin: 26px 0 0;
+  color: var(--horarios-texto-suave);
+  font-size: 0.82rem;
+  line-height: 1.85;
+}
+
+.horarios .aviso-horarios a,
+.horarios .aviso-sem-javascript a {
+  color: var(--horarios-vermelho-escuro);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.horarios .aviso-horarios a:hover,
+.horarios .aviso-sem-javascript a:hover {
+  color: var(--horarios-vermelho);
+}
+
+.horarios .aviso-sem-javascript {
+  margin: 0;
+  padding: 22px;
+  border: 1px solid #efd0d0;
+  border-left: 4px solid var(--horarios-vermelho);
+  border-radius: 14px;
+  background: #fff4f4;
+  color: var(--horarios-texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   CONVITE PARA A AULA EXPERIMENTAL
+   ========================================== */
+
+.horarios .horarios-experimental {
+  margin-top: 44px;
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid #353039;
+  border-top: 4px solid var(--horarios-vermelho);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 18%),
+      transparent 65%
+    ),
+    linear-gradient(135deg, #202024, #2c2023);
+  color: #fff;
+  box-shadow: 0 16px 38px rgb(20 20 24 / 12%);
+}
+
+.horarios .horarios-experimental-etiqueta {
+  display: inline-flex;
+  margin: 0 0 18px;
+  padding: 8px 12px;
+  border: 1px solid rgb(255 180 180 / 25%);
+  border-radius: 999px;
+  background: rgb(198 40 40 / 15%);
+  color: #ffcdcd;
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.horarios .horarios-experimental .titulo-grade {
+  max-width: 750px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.horarios .horarios-experimental .instrucao-grade {
+  max-width: 800px;
+  margin-bottom: 16px;
+  color: #d4d4db;
+  font-size: 0.93rem;
+}
+
+/* Botão principal. */
+
+.horarios .horarios-botao-experimental {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 100%;
+  min-height: 56px;
+  margin-top: 10px;
+  padding: 15px 20px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: var(--horarios-vermelho);
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 15%);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.horarios .horarios-botao-experimental span {
+  display: inline-flex;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgb(255 255 255 / 13%);
+  font-size: 1.15rem;
+}
+
+.horarios .horarios-botao-experimental:hover {
+  background: var(--horarios-vermelho-escuro);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.horarios .horarios-botao-experimental:active {
+  transform: translateY(0);
+}
+
+.horarios .horarios-botao-experimental:focus-visible {
+  outline-color: #ffb4b4;
+}
+
+.horarios .horarios-experimental .aviso-horarios {
+  max-width: none;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  color: #c9c9d0;
+  font-size: 0.79rem;
+}
+
+/* ==========================================
+   TABLETS
+   ========================================== */
+
+@media (max-width: 960px) {
+  .horarios {
+    padding: 46px 0 60px;
+  }
+
+  .horarios .horarios-abertura {
+    gap: 28px;
+    margin-bottom: 40px;
+  }
+
+  .horarios #titulo-horarios {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+  }
+
+  .horarios .cabecalho-secao .descricao {
+    font-size: 0.94rem;
+  }
+
+  .horarios .descricoes-aulas,
+  .horarios .grade-horarios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .horarios .grade-horarios.dia-selecionado {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .horarios .cartao-aula {
+    padding: 24px;
+  }
+}
+
+/* Abertura empilhada em telas menores. */
+
+@media (max-width: 760px) {
+  .horarios .horarios-abertura {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .horarios #titulo-horarios {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .horarios .cabecalho-secao .descricao {
+    max-width: 650px;
+    font-size: 1rem;
+  }
+}
+
+/* ==========================================
+   CELULARES
+   ========================================== */
+
+@media (max-width: 600px) {
+  .horarios {
+    padding: 34px 0 44px;
+  }
+
+  .horarios .horarios-abertura {
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .horarios .texto-destaque {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+
+  .horarios #titulo-horarios {
+    margin-bottom: 18px;
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .horarios #titulo-horarios .palavra-destaque {
+    margin-top: 6px;
+  }
+
+  .horarios .cabecalho-secao .descricao {
+    font-size: 0.95rem;
+  }
+
+  .horarios .horarios-link-programacao {
+    margin-top: 20px;
+    font-size: 0.84rem;
+  }
+
+  .horarios .horarios-foto-topo {
+    border-radius: 17px;
+  }
+
+  .horarios .horarios-foto-topo figcaption {
+    padding: 13px 16px;
+    font-size: 0.78rem;
+  }
+
+  .horarios .descricoes-aulas,
+  .horarios .grade-horarios {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .horarios .descricoes-aulas {
+    margin-bottom: 24px;
+  }
+
+  .horarios .cartao-aula {
+    padding: 22px;
+    border-radius: 17px;
+  }
+
+  .horarios .cartao-aula::before {
+    width: 28px;
+    margin-bottom: 16px;
+  }
+
+  .horarios .cartao-aula h2,
+  .horarios .cartao-aula h3 {
+    font-size: 1.18rem;
+  }
+
+  .horarios .informacao-tatame {
+    padding: 18px 20px;
+    font-size: 0.86rem;
+  }
+
+  .horarios .informacao-tatame + .titulo-grade {
+    margin-top: 32px;
+  }
+
+  .horarios .titulo-grade {
+    font-size: 1.5rem;
+  }
+
+  .horarios .instrucao-grade {
+    font-size: 0.88rem;
+  }
+
+  .horarios .filtros-dias {
+    gap: 8px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .horarios .botao-dia {
+    flex: 1 1 95px;
+    min-height: 44px;
+    padding: 11px 12px;
+    font-size: 0.8rem;
+  }
+
+  .horarios .cartao-dia {
+    border-radius: 17px;
+  }
+
+  .horarios .cabecalho-dia {
+    padding: 19px 20px;
+  }
+
+  .horarios .item-aula {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .horarios .nome-aula {
+    font-size: 0.92rem;
+  }
+
+  .horarios .horarios-experimental {
+    margin-top: 32px;
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .horarios .horarios-experimental-etiqueta {
+    margin-bottom: 16px;
+    font-size: 0.7rem;
+  }
+
+  .horarios .horarios-experimental .instrucao-grade {
+    font-size: 0.88rem;
+  }
+
+  .horarios .horarios-botao-experimental {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+    padding: 15px 16px;
+    font-size: 0.87rem;
+  }
+
+  .horarios .horarios-experimental .aviso-horarios {
+    font-size: 0.76rem;
+  }
+}
+
+/* ==========================================
+   TELAS MUITO ESTREITAS
+   ========================================== */
+
+@media (max-width: 380px) {
+  .horarios .cartao-aula {
+    padding: 20px;
+  }
+
+  .horarios .item-aula {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 10px;
+    padding: 18px 16px;
+  }
+
+  .horarios .hora-aula {
+    padding: 6px 5px;
+    font-size: 0.82rem;
+  }
+
+  .horarios .horarios-experimental {
+    padding: 24px 18px;
+  }
+}
+
+/* ==========================================
+   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.horarios) {
+    scroll-behavior: auto;
+  }
+
+  .horarios .botao-dia,
+  .horarios .horarios-link-programacao,
+  .horarios .horarios-botao-experimental {
+    transition: none;
+  }
+
+  .horarios .horarios-botao-experimental:hover,
+  .horarios .horarios-botao-experimental:active {
+    transform: none;
+  }
+}

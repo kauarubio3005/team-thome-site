@@ -1,0 +1,600 @@
+/* ==========================================
+   TEAM THOMÉ — LOCALIZAÇÃO E CONTATO
+   ========================================== */
+
+/* Cabeçalho desta página. */
+
+body:has(.contato) .cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 3px 18px rgb(20 20 24 / 7%);
+}
+
+/* ==========================================
+   BASE
+   ========================================== */
+
+.contato {
+  --contato-vermelho: #c62828;
+  --contato-vermelho-escuro: #a51f1f;
+  --contato-texto: #202024;
+  --contato-texto-suave: #595960;
+  --contato-borda: #e5e5e9;
+  --contato-fundo: #f6f6f8;
+
+  padding: 58px 0 72px;
+  border-top: 1px solid var(--contato-borda);
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 8%),
+      transparent 45%
+    ),
+    var(--contato-fundo);
+  color: var(--contato-texto);
+  scroll-margin-top: var(--altura-cabecalho, 140px);
+}
+
+.contato,
+.contato *,
+.contato *::before,
+.contato *::after {
+  box-sizing: border-box;
+}
+
+.contato [hidden] {
+  display: none !important;
+}
+
+/* ==========================================
+   ABERTURA
+   ========================================== */
+
+.contato .cabecalho-secao {
+  max-width: 850px;
+  margin: 0 0 38px;
+}
+
+.contato .texto-destaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 24px;
+  padding: 9px 15px;
+  border: 1px solid #efd2d2;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--contato-vermelho-escuro);
+  box-shadow: 0 3px 10px rgb(20 20 24 / 3%);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.contato .texto-destaque::before {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--contato-vermelho);
+  content: "";
+}
+
+.contato #titulo-contato {
+  margin: 0 0 22px;
+  color: var(--contato-texto);
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.contato #titulo-contato .palavra-destaque {
+  display: block;
+  margin-top: 6px;
+  color: var(--contato-vermelho);
+}
+
+.contato .cabecalho-secao .descricao {
+  max-width: 700px;
+  margin: 0;
+  color: var(--contato-texto-suave);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   CARTÕES
+   ========================================== */
+
+.contato .contato-grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.contato .contato-cartao {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 32px;
+  border: 1px solid var(--contato-borda);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow:
+    0 4px 12px rgb(20 20 24 / 2%),
+    0 16px 34px rgb(20 20 24 / 5%);
+}
+
+.contato .contato-cartao::before {
+  display: block;
+  flex-shrink: 0;
+  width: 36px;
+  height: 4px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: var(--contato-vermelho);
+  content: "";
+}
+
+.contato .contato-cartao .contato-etiqueta {
+  margin: 0 0 9px;
+  color: var(--contato-vermelho-escuro);
+  font-size: 0.73rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contato .contato-cartao h2 {
+  margin: 0 0 14px;
+  color: var(--contato-texto);
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.contato .contato-cartao p {
+  margin: 0 0 24px;
+  color: var(--contato-texto-suave);
+  font-size: 0.94rem;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   ENDEREÇO
+   ========================================== */
+
+.contato .contato-endereco {
+  margin: 0 0 24px;
+  padding: 20px;
+  border: 1px solid #ededf0;
+  border-radius: 14px;
+  background: #f8f8fa;
+  color: var(--contato-texto-suave);
+  font-size: 0.94rem;
+  font-style: normal;
+  line-height: 1.85;
+}
+
+.contato .contato-endereco strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--contato-texto);
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.contato .contato-endereco span {
+  display: block;
+}
+
+/* ==========================================
+   CANAIS E LINKS
+   ========================================== */
+
+.contato .contato-lista {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contato .contato-lista li {
+  min-width: 0;
+}
+
+.contato .contato-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 58px;
+  padding: 16px 18px;
+  border: 1px solid var(--contato-borda);
+  border-radius: 13px;
+  background: #fff;
+  color: var(--contato-texto);
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.contato .contato-link:hover {
+  border-color: #e5baba;
+  background: #fff5f5;
+  color: var(--contato-vermelho-escuro);
+  box-shadow: 0 5px 14px rgb(198 40 40 / 5%);
+}
+
+.contato .contato-canal {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--contato-texto-suave);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contato .contato-seta {
+  display: inline-flex;
+  flex: 0 0 30px;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #f4f4f7;
+  color: currentColor;
+  font-size: 1.2rem;
+}
+
+/* Botão do Google Maps. */
+
+.contato .contato-link-mapa {
+  margin-top: auto;
+  border-color: var(--contato-vermelho);
+  background: var(--contato-vermelho);
+  color: #fff;
+  box-shadow: 0 6px 16px rgb(198 40 40 / 14%);
+}
+
+.contato .contato-link-mapa .contato-seta {
+  background: rgb(255 255 255 / 14%);
+}
+
+.contato .contato-link-mapa:hover {
+  border-color: var(--contato-vermelho-escuro);
+  background: var(--contato-vermelho-escuro);
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(198 40 40 / 18%);
+}
+
+/* ==========================================
+   AULA EXPERIMENTAL
+   ========================================== */
+
+.contato .contato-experimental {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  align-items: center;
+  column-gap: 36px;
+  row-gap: 28px;
+  margin-top: 36px;
+  padding: clamp(28px, 4vw, 42px);
+  border: 1px solid #353039;
+  border-top: 4px solid var(--contato-vermelho);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 20%),
+      transparent 65%
+    ),
+    linear-gradient(135deg, #202024, #2c2023);
+  color: #fff;
+  box-shadow: 0 16px 38px rgb(20 20 24 / 12%);
+}
+
+.contato .contato-experimental-texto,
+.contato .contato-experimental-acoes {
+  min-width: 0;
+}
+
+.contato .contato-experimental-etiqueta {
+  display: inline-flex;
+  margin: 0 0 18px;
+  padding: 8px 12px;
+  border: 1px solid rgb(255 180 180 / 25%);
+  border-radius: 999px;
+  background: rgb(198 40 40 / 15%);
+  color: #ffcdcd;
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.contato .contato-experimental h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.contato .contato-experimental-texto > p:last-child {
+  max-width: 650px;
+  margin: 0;
+  color: #d4d4db;
+  font-size: 0.94rem;
+  line-height: 1.85;
+}
+
+.contato .contato-experimental-acoes {
+  display: grid;
+  gap: 18px;
+}
+
+/* Botão da aula experimental. */
+
+.contato .contato-botao-experimental {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 58px;
+  padding: 15px 18px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: var(--contato-vermelho);
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 15%);
+  font-size: 0.89rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.contato .contato-botao-experimental span {
+  display: inline-flex;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgb(255 255 255 / 13%);
+  font-size: 1.15rem;
+}
+
+.contato .contato-botao-experimental:hover {
+  background: var(--contato-vermelho-escuro);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.contato .contato-botao-experimental:active {
+  transform: translateY(0);
+}
+
+/* Link secundário para os horários. */
+
+.contato .contato-link-horarios {
+  justify-self: center;
+  padding: 5px 0;
+  color: #e4e4eb;
+  font-size: 0.83rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 180ms ease;
+}
+
+.contato .contato-link-horarios:hover {
+  color: #ffcdcd;
+}
+
+/* Aviso sobre o funcionamento do formulário. */
+
+.contato .contato-experimental-aviso {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 22px;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  color: #c9c9d0;
+  font-size: 0.79rem;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+   ========================================== */
+
+.contato a:focus-visible {
+  outline: 3px solid var(--contato-vermelho);
+  outline-offset: 4px;
+}
+
+.contato .contato-experimental a:focus-visible {
+  outline-color: #ffb4b4;
+}
+
+/* ==========================================
+   TABLETS E TELAS MENORES
+   ========================================== */
+
+@media (max-width: 960px) {
+  .contato {
+    padding: 46px 0 60px;
+  }
+
+  .contato .contato-cartao {
+    padding: 26px;
+  }
+
+  .contato .contato-experimental {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .contato .contato-experimental-acoes {
+    justify-items: start;
+  }
+
+  .contato .contato-botao-experimental {
+    width: min(100%, 360px);
+  }
+
+  .contato .contato-link-horarios {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 760px) {
+  .contato .contato-grade {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ==========================================
+   CELULARES
+   ========================================== */
+
+@media (max-width: 600px) {
+  .contato {
+    padding: 34px 0 44px;
+  }
+
+  .contato .cabecalho-secao {
+    margin-bottom: 28px;
+  }
+
+  .contato .texto-destaque {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+
+  .contato #titulo-contato {
+    margin-bottom: 18px;
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .contato .cabecalho-secao .descricao {
+    font-size: 0.95rem;
+  }
+
+  .contato .contato-cartao {
+    padding: 24px 22px;
+    border-radius: 18px;
+  }
+
+  .contato .contato-cartao::before {
+    width: 30px;
+    margin-bottom: 18px;
+  }
+
+  .contato .contato-cartao h2 {
+    font-size: 1.35rem;
+  }
+
+  .contato .contato-cartao p {
+    font-size: 0.89rem;
+  }
+
+  .contato .contato-endereco {
+    padding: 17px;
+    font-size: 0.89rem;
+  }
+
+  .contato .contato-link {
+    gap: 12px;
+    padding: 15px;
+    font-size: 0.88rem;
+  }
+
+  .contato .contato-experimental {
+    margin-top: 28px;
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .contato .contato-experimental-etiqueta {
+    font-size: 0.7rem;
+  }
+
+  .contato .contato-experimental h2 {
+    font-size: 1.5rem;
+  }
+
+  .contato .contato-experimental-texto > p:last-child {
+    font-size: 0.89rem;
+  }
+
+  .contato .contato-experimental-acoes {
+    justify-items: stretch;
+  }
+
+  .contato .contato-botao-experimental {
+    width: 100%;
+    padding: 15px 16px;
+    font-size: 0.85rem;
+  }
+
+  .contato .contato-link-horarios {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .contato .contato-experimental-aviso {
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================
+   MOVIMENTO REDUZIDO
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.contato) {
+    scroll-behavior: auto;
+  }
+
+  .contato .contato-link,
+  .contato .contato-botao-experimental,
+  .contato .contato-link-horarios {
+    transition: none;
+  }
+
+  .contato .contato-botao-experimental:hover,
+  .contato .contato-botao-experimental:active {
+    transform: none;
+  }
+}

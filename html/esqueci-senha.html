@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Recuperar senha | Team Thomé</title>
+
+    <style>
+        :root {
+            color-scheme: dark;
+            --fundo: #0c0c0e;
+            --painel: #141416;
+            --campo: #151518;
+            --texto: #f5f5f5;
+            --secundario: #a3a3ab;
+            --vermelho: #e43136;
+            --borda: #2b2b31;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: var(--fundo);
+            color: var(--texto);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        input:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--vermelho);
+            outline-offset: 5px;
+        }
+
+        .pagina {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+        }
+
+        .apresentacao {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(32px, 5vw, 80px);
+            background:
+                radial-gradient(
+                    ellipse at bottom left,
+                    rgb(228 49 54 / 18%),
+                    transparent 65%
+                ),
+                var(--painel);
+            border-right: 1px solid var(--borda);
+        }
+
+        .apresentacao::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 600px;
+            right: -180px;
+            top: 20%;
+            transform: rotate(30deg);
+            border: 1px solid rgb(255 255 255 / 6%);
+            pointer-events: none;
+        }
+
+        .marca {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            flex-direction: column;
+            width: fit-content;
+            text-decoration: none;
+        }
+
+        .marca-nome {
+            font-size: 1.55rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .marca-nome span {
+            color: var(--vermelho);
+        }
+
+        .marca-modalidade {
+            margin-top: 5px;
+            color: var(--secundario);
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+        }
+
+        .mensagem {
+            position: relative;
+            z-index: 1;
+            max-width: 540px;
+            padding: 70px 0;
+        }
+
+        .etiqueta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 24px;
+            color: #c2c2c9;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .etiqueta::before {
+            content: "";
+            width: 30px;
+            height: 3px;
+            background: var(--vermelho);
+        }
+
+        .mensagem h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 4.8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.04;
+            letter-spacing: -2px;
+        }
+
+        .mensagem h1 span {
+            color: var(--vermelho);
+        }
+
+        .mensagem-texto {
+            max-width: 390px;
+            margin: 26px 0 0;
+            color: var(--secundario);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .assinatura {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #777780;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .recuperacao {
+            display: flex;
+            flex-direction: column;
+            padding: clamp(28px, 5vw, 72px);
+        }
+
+        .navegacao {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .voltar {
+            color: var(--secundario);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .voltar:hover {
+            color: var(--texto);
+        }
+
+        .conteudo-recuperacao {
+            width: 100%;
+            max-width: 390px;
+            margin: auto;
+            padding: 64px 0;
+        }
+
+        .titulo-recuperacao {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            letter-spacing: -1px;
+        }
+
+        .descricao-recuperacao {
+            margin: 0;
+            color: var(--secundario);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .formulario {
+            margin-top: 32px;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .campo input {
+            width: 100%;
+            min-height: 54px;
+            padding: 15px 16px;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            background: var(--campo);
+            color: var(--texto);
+            font: inherit;
+            font-size: 1rem;
+        }
+
+        .campo input::placeholder {
+            color: #777780;
+            opacity: 1;
+        }
+
+        .enviar {
+            width: 100%;
+            min-height: 54px;
+            padding: 14px 20px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--vermelho);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s, opacity 0.2s;
+        }
+
+        .enviar:hover:not(:disabled) {
+            transform: translateY(-1px);
+            background: #f04449;
+        }
+
+        .enviar:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+
+        .aviso {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            min-height: 0;
+            margin: 18px 0 0;
+            padding: 14px 16px;
+            border: 1px solid rgb(228 49 54 / 30%);
+            border-radius: 10px;
+            background: rgb(228 49 54 / 8%);
+            color: #e7c5c6;
+            font-size: 0.84rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .aviso::before {
+            content: "✓";
+            display: grid;
+            flex: 0 0 22px;
+            width: 22px;
+            height: 22px;
+            place-items: center;
+            border-radius: 50%;
+            background: rgb(228 49 54 / 18%);
+            color: #ff777b;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .retorno-login {
+            margin: 22px 0 0;
+            color: var(--secundario);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .retorno-login a {
+            color: var(--texto);
+            font-weight: 700;
+            text-underline-offset: 4px;
+        }
+
+        .retorno-login a:hover {
+            color: var(--vermelho);
+        }
+
+        .rodape {
+            margin: 0;
+            color: #777780;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .pagina {
+                grid-template-columns: 1fr;
+            }
+
+            .apresentacao {
+                padding: 28px;
+                border-right: 0;
+                border-bottom: 1px solid var(--borda);
+            }
+
+            .mensagem {
+                padding: 40px 0 12px;
+            }
+
+            .mensagem h1 {
+                font-size: clamp(2.5rem, 8vw, 3.5rem);
+                letter-spacing: -1px;
+            }
+
+            .mensagem-texto {
+                margin-top: 18px;
+            }
+
+            .assinatura {
+                display: none;
+            }
+
+            .recuperacao {
+                padding: 26px 28px;
+            }
+
+            .conteudo-recuperacao {
+                padding: 40px 0;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .apresentacao,
+            .recuperacao {
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+
+    <script type="module" src="../js/esqueci-senha.js"></script>
+</head>
+
+<body>
+    <main class="pagina">
+        <section class="apresentacao" aria-labelledby="titulo-apresentacao">
+            <a
+                class="marca"
+                href="../index.html"
+                aria-label="Team Thomé — página inicial"
+            >
+                <span class="marca-nome">TEAM <span>THOMÉ</span></span>
+                <span class="marca-modalidade">JIU-JÍTSU</span>
+            </a>
+
+            <div class="mensagem">
+                <p class="etiqueta">Acesso à sua conta</p>
+
+                <h1 id="titulo-apresentacao">
+                    Vamos ajudar você a <span>voltar.</span>
+                </h1>
+
+                <p class="mensagem-texto">
+                    Informe o e-mail associado à sua conta. Enviaremos
+                    instruções para redefinir sua senha.
+                </p>
+            </div>
+
+            <p class="assinatura">TEAM THOMÉ · DESDE 2017</p>
+        </section>
+
+        <section class="recuperacao" aria-labelledby="titulo-recuperacao">
+            <nav class="navegacao" aria-label="Retorno ao site">
+                <a class="voltar" href="../index.html">← Voltar ao site</a>
+            </nav>
+
+            <div class="conteudo-recuperacao">
+                <h2 class="titulo-recuperacao" id="titulo-recuperacao">
+                    Esqueceu sua senha?
+                </h2>
+
+                <p class="descricao-recuperacao">
+                    Digite seu e-mail e enviaremos um link de recuperação.
+                </p>
+
+                <form
+                    class="formulario"
+                    id="formulario-recuperacao"
+                    aria-describedby="aviso-recuperacao"
+                >
+                    <div class="campo">
+                        <label for="email">E-mail da sua conta</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            autocomplete="email"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            required
+                            disabled
+                        >
+                    </div>
+
+                    <button
+                        class="enviar"
+                        id="botao-enviar"
+                        type="submit"
+                        disabled
+                    >
+                        Enviar link de recuperação
+                    </button>
+
+                    <p
+                        class="aviso"
+                        id="aviso-recuperacao"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        Carregando o serviço de acesso...
+                    </p>
+                </form>
+
+                <p class="retorno-login">
+                    Lembrou sua senha?
+                    <a href="login.html">Voltar ao login</a>
+                </p>
+            </div>
+
+            <p class="rodape">Team Thomé — Jiu-jítsu</p>
+        </section>
+    </main>
+</body>
+</html>

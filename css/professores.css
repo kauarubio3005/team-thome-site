@@ -1,0 +1,940 @@
+/* Estilos exclusivos da página de professores. */
+
+.pagina-professores {
+  --professores-vermelho: #c62828;
+  --professores-vermelho-escuro: #a51f1f;
+  --professores-texto: #202024;
+  --professores-suave: #595960;
+  --professores-borda: #e5e5e9;
+  --professores-fundo: #f6f6f8;
+
+  color: var(--professores-texto);
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgb(198 40 40 / 5%),
+      transparent 45%
+    ),
+    #f7f7f9;
+}
+
+.pagina-professores *,
+.pagina-professores *::before,
+.pagina-professores *::after {
+  box-sizing: border-box;
+}
+
+/* Cabeçalho da seção. */
+
+.pagina-professores .cabecalho-secao {
+  max-width: 850px;
+  margin-bottom: 48px;
+}
+
+.pagina-professores .cabecalho-secao .texto-destaque {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 14px;
+  border: 1px solid rgb(198 40 40 / 15%);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--professores-vermelho);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagina-professores .cabecalho-secao h1 {
+  margin: 0 0 22px;
+  color: var(--professores-texto);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.pagina-professores .cabecalho-secao .palavra-destaque {
+  color: var(--professores-vermelho);
+}
+
+.pagina-professores .cabecalho-secao .descricao {
+  max-width: 690px;
+  margin: 0;
+  color: var(--professores-suave);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Organização dos perfis. */
+
+.pagina-professores .professores-perfis {
+  display: grid;
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.pagina-professores .professor-perfil {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--professores-borda);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow:
+    0 4px 12px rgb(20 20 24 / 3%),
+    0 22px 60px rgb(20 20 24 / 7%);
+}
+
+/* Foto e apresentação principal. */
+
+.pagina-professores .professor-apresentacao {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: stretch;
+  background: linear-gradient(135deg, #fff, #fafafa);
+}
+
+.pagina-professores .professor-foto {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #ededf0;
+}
+
+.pagina-professores .professor-foto::after {
+  position: absolute;
+  inset: 55% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(0 0 0 / 45%)
+  );
+  pointer-events: none;
+  content: "";
+}
+
+.pagina-professores .professor-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 540px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.pagina-professores .professor-foto figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  width: fit-content;
+  max-width: calc(100% - 48px);
+  padding: 12px 16px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 12px;
+  background: rgb(20 20 24 / 88%);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.pagina-professores .professor-identificacao {
+  align-self: center;
+  min-width: 0;
+  padding: clamp(28px, 4vw, 52px);
+}
+
+.pagina-professores .professor-etiqueta {
+  margin: 0 0 14px;
+  color: var(--professores-vermelho);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pagina-professores .professor-identificacao h2 {
+  margin: 0 0 16px;
+  color: var(--professores-texto);
+  font-size: clamp(2rem, 3.8vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+.pagina-professores .professor-cargo {
+  margin: 0 0 10px;
+  color: var(--professores-texto);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.pagina-professores .professor-equipe {
+  margin: 0;
+  color: var(--professores-suave);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Graduações. */
+
+.pagina-professores .professor-graduacoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.pagina-professores .professor-graduacao {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #303036;
+  border-left: 4px solid var(--professores-vermelho);
+  border-radius: 14px;
+  background: #202024;
+  color: #fff;
+}
+
+.pagina-professores .professor-graduacao:only-child {
+  grid-column: 1 / -1;
+}
+
+.pagina-professores .professor-entidade {
+  display: block;
+  margin-bottom: 8px;
+  color: #c9c9d0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagina-professores .professor-graduacao strong {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.pagina-professores .professor-introducao {
+  margin: 0 0 26px;
+  color: var(--professores-suave);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+/* Informações principais. */
+
+.pagina-professores .professor-marcos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 30px;
+  padding: 0;
+}
+
+.pagina-professores .professor-marcos > div {
+  min-width: 0;
+  padding: 16px 12px;
+  border: 1px solid var(--professores-borda);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.pagina-professores .professor-marcos dt {
+  margin-bottom: 8px;
+  color: var(--professores-suave);
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.pagina-professores .professor-marcos dd {
+  margin: 0;
+  color: var(--professores-texto);
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* Botões apenas dentro desta página. */
+
+.pagina-professores .botao {
+  min-height: 48px;
+  border-radius: 12px;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.pagina-professores .botao-principal {
+  background: var(--professores-vermelho);
+  color: #fff;
+  box-shadow: 0 6px 16px rgb(198 40 40 / 15%);
+}
+
+.pagina-professores .botao-principal:hover {
+  background: var(--professores-vermelho-escuro);
+  transform: translateY(-2px);
+}
+
+.pagina-professores .botao-secundario:hover {
+  transform: translateY(-2px);
+}
+
+.pagina-professores a:focus-visible {
+  outline: 3px solid var(--professores-vermelho);
+  outline-offset: 5px;
+}
+
+/* Trajetória e formação. */
+
+.pagina-professores .professor-detalhes {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 44px;
+  padding: clamp(28px, 4vw, 52px);
+  border-top: 1px solid var(--professores-borda);
+}
+
+.pagina-professores .professor-trajetoria {
+  min-width: 0;
+}
+
+.pagina-professores .professor-detalhes h3,
+.pagina-professores .professor-atuacao h3,
+.pagina-professores .professor-filosofia h3 {
+  margin: 0 0 20px;
+  color: var(--professores-texto);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.pagina-professores
+  .professor-trajetoria > p:not(.professor-etiqueta) {
+  margin: 0 0 28px;
+  color: var(--professores-suave);
+  line-height: 1.8;
+}
+
+.pagina-professores .professor-linha-tempo {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-professores .professor-linha-tempo li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.pagina-professores .professor-linha-tempo li:last-child {
+  padding-bottom: 0;
+}
+
+.pagina-professores
+  .professor-linha-tempo li:not(:last-child)::before {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 31px;
+  width: 2px;
+  background: #efdddd;
+  content: "";
+}
+
+.pagina-professores .professor-ano {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  min-height: 40px;
+  border: 1px solid #f3d8d8;
+  border-radius: 12px;
+  background: #fff0f0;
+  color: var(--professores-vermelho-escuro);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.pagina-professores .professor-linha-tempo h4 {
+  margin: 6px 0 8px;
+  color: var(--professores-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pagina-professores .professor-linha-tempo p {
+  margin: 0;
+  color: var(--professores-suave);
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+/* Cartão lateral de formação ou conquistas. */
+
+.pagina-professores .professor-formacao {
+  align-self: start;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--professores-borda);
+  border-top: 4px solid var(--professores-vermelho);
+  border-radius: 18px;
+  background: var(--professores-fundo);
+}
+
+.pagina-professores .professor-formacao-lista {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-professores .professor-formacao-lista li + li {
+  padding-top: 24px;
+  border-top: 1px solid var(--professores-borda);
+}
+
+.pagina-professores .professor-status {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--professores-vermelho);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.pagina-professores .professor-formacao-lista h4 {
+  margin: 0 0 8px;
+  color: var(--professores-texto);
+  font-size: 1.03rem;
+  line-height: 1.5;
+}
+
+.pagina-professores .professor-formacao-lista p {
+  margin: 0;
+  color: var(--professores-suave);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.pagina-professores .professor-formacao-nota {
+  margin: 24px 0 0;
+  color: var(--professores-suave);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+/* Áreas de atuação e títulos. */
+
+.pagina-professores .professor-atuacao {
+  padding: clamp(28px, 4vw, 52px);
+  border-top: 1px solid var(--professores-borda);
+  background: #fafafa;
+}
+
+.pagina-professores .professor-atuacao-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-professores .professor-atuacao-lista li {
+  position: relative;
+  min-width: 0;
+  padding: 26px 22px;
+  border: 1px solid var(--professores-borda);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgb(20 20 24 / 3%);
+}
+
+.pagina-professores .professor-atuacao-lista li::before {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--professores-vermelho);
+  content: "";
+}
+
+.pagina-professores .professor-atuacao-lista h4 {
+  margin: 0 0 10px;
+  color: var(--professores-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.pagina-professores .professor-atuacao-lista p {
+  margin: 0;
+  color: var(--professores-suave);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.pagina-professores .professor-atuacao-nota {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: var(--professores-suave);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+/* Filosofia de ensino. */
+
+.pagina-professores .professor-filosofia {
+  position: relative;
+  padding: clamp(30px, 4vw, 52px);
+  border-top: 4px solid var(--professores-vermelho);
+  background: linear-gradient(125deg, #202024, #2c2023);
+  color: #fff;
+}
+
+.pagina-professores .professor-filosofia .professor-etiqueta {
+  color: #ffb4b4;
+}
+
+.pagina-professores .professor-filosofia h3 {
+  color: #fff;
+}
+
+.pagina-professores
+  .professor-filosofia > p:not(.professor-etiqueta) {
+  max-width: 850px;
+  margin: 0;
+  color: #e2e2e7;
+  font-size: 1.03rem;
+  line-height: 1.9;
+}
+
+.pagina-professores .professor-valores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-professores .professor-valores li {
+  padding: 9px 16px;
+  border: 1px solid #68616a;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 4%);
+  color: #fff;
+  font-size: 0.83rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Convite ao final da página. */
+
+.pagina-professores .professores-convite {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 48px;
+  padding: clamp(28px, 4vw, 40px);
+  border: 1px solid var(--professores-borda);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(20 20 24 / 4%);
+}
+
+.pagina-professores .professores-convite > div:first-child {
+  flex: 1 1 350px;
+}
+
+.pagina-professores .professores-convite .texto-destaque {
+  color: var(--professores-vermelho);
+}
+
+.pagina-professores .professores-convite h2 {
+  margin: 0 0 12px;
+  color: var(--professores-texto);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.pagina-professores .professores-convite p:not(.texto-destaque) {
+  max-width: 580px;
+  margin: 0;
+  color: var(--professores-suave);
+  line-height: 1.75;
+}
+
+.pagina-professores .professores-convite .apresentacao-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+}
+
+/* Navegação manual entre os perfis dos professores. */
+
+.pagina-professores .navegacao-professores {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    "anterior indicador proximo"
+    "seletores seletores seletores";
+  align-items: center;
+  gap: 22px;
+  margin: 0 0 30px;
+  padding: 0 4px;
+}
+
+.pagina-professores .navegacao-professores-anterior,
+.pagina-professores .navegacao-professores-proximo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: var(--professores-texto);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.pagina-professores .navegacao-professores-anterior {
+  grid-area: anterior;
+  justify-self: start;
+}
+
+.pagina-professores .navegacao-professores-anterior::before {
+  color: var(--professores-vermelho);
+  font-size: 1.25rem;
+  line-height: 1;
+  content: "←";
+}
+
+.pagina-professores .navegacao-professores-proximo {
+  grid-area: proximo;
+  justify-self: end;
+}
+
+.pagina-professores .navegacao-professores-proximo::after {
+  color: var(--professores-vermelho);
+  font-size: 1.25rem;
+  line-height: 1;
+  content: "→";
+}
+
+.pagina-professores .navegacao-professores-anterior:hover {
+  color: var(--professores-vermelho);
+  transform: translateX(-3px);
+}
+
+.pagina-professores .navegacao-professores-proximo:hover {
+  color: var(--professores-vermelho);
+  transform: translateX(3px);
+}
+
+.pagina-professores .navegacao-professores-anterior:disabled,
+.pagina-professores .navegacao-professores-proximo:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagina-professores .navegacao-professores-indicador {
+  grid-area: indicador;
+  margin: 0;
+  color: var(--professores-suave);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pagina-professores .navegacao-professores-seletores {
+  grid-area: seletores;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--professores-borda);
+}
+
+.pagina-professores .navegacao-professores-seletor {
+  position: relative;
+  min-height: 42px;
+  padding: 9px 17px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--professores-suave);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.pagina-professores .navegacao-professores-seletor:hover {
+  transform: translateY(-1px);
+  border-color: var(--professores-borda);
+  background: #fff;
+  color: var(--professores-texto);
+}
+
+.pagina-professores
+  .navegacao-professores-seletor[aria-current="true"] {
+  border-color: var(--professores-vermelho);
+  background: var(--professores-vermelho);
+  color: #fff;
+  box-shadow: 0 5px 14px rgb(198 40 40 / 20%);
+}
+
+.pagina-professores .navegacao-professores button:focus-visible {
+  outline: 3px solid var(--professores-vermelho);
+  outline-offset: 4px;
+}
+
+/* Tablets. */
+
+@media (max-width: 960px) {
+  .pagina-professores .professor-identificacao {
+    padding: 28px;
+  }
+
+  .pagina-professores .professor-graduacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-professores .professor-marcos {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pagina-professores .professor-marcos > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+  }
+
+  .pagina-professores .professor-marcos dt {
+    margin-bottom: 0;
+  }
+
+  .pagina-professores .professor-marcos dd {
+    text-align: right;
+  }
+
+  .pagina-professores .professor-detalhes {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Celulares. */
+
+@media (max-width: 640px) {
+  .pagina-professores .cabecalho-secao {
+    margin-bottom: 30px;
+  }
+
+  .pagina-professores .cabecalho-secao h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  .pagina-professores .cabecalho-secao .descricao {
+    font-size: 0.98rem;
+  }
+
+  .pagina-professores .professores-perfis {
+    gap: 30px;
+    margin-top: 24px;
+  }
+
+  .pagina-professores .professor-perfil {
+    border-radius: 20px;
+  }
+
+  .pagina-professores .professor-apresentacao {
+    grid-template-columns: 1fr;
+  }
+
+  .pagina-professores .professor-foto img {
+    height: auto;
+    min-height: 0;
+    max-height: 560px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .pagina-professores .professor-foto figcaption {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    max-width: calc(100% - 32px);
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+
+  .pagina-professores .professor-identificacao,
+  .pagina-professores .professor-detalhes,
+  .pagina-professores .professor-atuacao,
+  .pagina-professores .professor-filosofia {
+    padding: 28px 20px;
+  }
+
+  .pagina-professores .professor-identificacao h2 {
+    font-size: 2.1rem;
+  }
+
+  .pagina-professores .professor-cargo {
+    font-size: 1rem;
+  }
+
+  .pagina-professores .professor-graduacoes {
+    margin: 24px 0;
+  }
+
+  .pagina-professores .professor-identificacao .botao {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .pagina-professores .professor-formacao {
+    padding: 24px 18px;
+  }
+
+  .pagina-professores .professor-atuacao-lista {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pagina-professores .professor-atuacao-lista li {
+    padding: 22px 20px;
+  }
+
+  .pagina-professores .professor-linha-tempo li {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .pagina-professores
+    .professor-linha-tempo li:not(:last-child)::before {
+    left: 27px;
+  }
+
+  .pagina-professores .professor-valores {
+    gap: 8px;
+  }
+
+  .pagina-professores .professor-valores li {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .pagina-professores .professores-convite {
+    margin-top: 30px;
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .pagina-professores .professores-convite > div:first-child {
+    flex-basis: 100%;
+  }
+
+  .pagina-professores .professores-convite .apresentacao-acoes {
+    width: 100%;
+  }
+
+  .pagina-professores .professores-convite .botao {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .pagina-professores .navegacao-professores {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "indicador indicador"
+      "anterior proximo"
+      "seletores seletores";
+    gap: 12px 16px;
+    margin-bottom: 22px;
+  }
+
+  .pagina-professores .navegacao-professores-indicador {
+    padding-bottom: 4px;
+  }
+
+  .pagina-professores .navegacao-professores-anterior,
+  .pagina-professores .navegacao-professores-proximo {
+    font-size: 0.84rem;
+  }
+
+  .pagina-professores .navegacao-professores-seletores {
+    gap: 6px;
+    padding-top: 14px;
+  }
+
+  .pagina-professores .navegacao-professores-seletor {
+    min-height: 38px;
+    padding: 8px 13px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Respeita a preferência por movimento reduzido. */
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina-professores .botao,
+  .pagina-professores .navegacao-professores-anterior,
+  .pagina-professores .navegacao-professores-proximo,
+  .pagina-professores .navegacao-professores-seletor {
+    transition: none;
+  }
+
+  .pagina-professores .botao:hover,
+  .pagina-professores .navegacao-professores-anterior:hover,
+  .pagina-professores .navegacao-professores-proximo:hover,
+  .pagina-professores .navegacao-professores-seletor:hover {
+    transform: none;
+  }
+}
